@@ -8,9 +8,9 @@
 <!--<![endif]-->
 <html>
 <head>
-<title>Loan calculator</title>
+<title>App | Loan check</title>
 <meta charset="UTF-8" />
-<meta name="title" content="Loan calculator" />
+<meta name="title" content="Loan check app" />
 <meta name="Description" content="PHP loan check application script" />
 <meta name="keywords" content="web application,php,php script,free script,MIT scripts" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
@@ -22,7 +22,7 @@
 <meta http-equiv="Expires" content="0" />
 <meta name="author" content="Eugy Enoch" />
 <meta property="og:type" content="application" />
-<meta property="og:title" content="Loan calculator" />
+<meta property="og:title" content="Loan check app" />
 <meta property="og:description" content="PHP loan check application script" />
 <meta property="og:image" content="debitcards.jpg" />
 <meta property="og:author" content="Eugy Enoch" />
@@ -48,7 +48,6 @@
 		<option name="currency">&#8377;</option>
 		<option name="currency">&#8378;</option>
 		<option name="currency">&#8361;</option>
-
 	</select><br />	
 			</td>
 			<td>
@@ -84,15 +83,27 @@ if(isset($_POST['submit'])){
     $currencySelect=$_POST['currency'];
     $loanDuration;
 
-	if($loanAmount>100000){
-	$loanDuration=2;
-	$loanPayback=(intval($loanAmount)*($interest/100)*$loanDuration)+$loanAmount;
-	echo "<h3><br>Your requested loan is " .$currencySelect. $loanAmount." for ".$loanSelect."<br>Interest rate is charged at " . $interest . "%<br>"."You payback " .$currencySelect. $loanPayback . " on or before the completion of 24 months</h3>";}
+
 if($loanAmount<=100000 AND $loanSelect=='24 months'){
-	echo "<br><span>Your selected loan of " .$currencySelect.$loanAmount. " has a duration of 12months allowed.<br>Change loan amount or selection to continue.</span>";}
+	echo "<br><span>Your selected loan of " .$currencySelect.$loanAmount. " has a duration of 12 months allowed.<br>Change loan amount or selection to continue.</span>";
+	exit(0);
+}
+
+if(!is_numeric($loanAmount)){
+	echo"<br><span>Please enter valid amount in numbers</span>";
+	exit(0);
+}
+
+if($loanAmount>100000){
+	$loanDuration=2;
+	$loanPayback=(floatval($loanAmount)*($interest/100)*$loanDuration)+$loanAmount;
+	echo "<h3><br>Your requested loan is " .$currencySelect. $loanAmount." and can only run for 24 months<br>Interest rate is charged at " . $interest . "%<br>"."You payback " .$currencySelect. $loanPayback . " on or before the completion of 24 months.<br>Do you still wish to continue?</h3>";
+}
+
 else{
 	$loanDuration=1;
-	$loanPayback=(intval($loanAmount)*($interest/100)*$loanDuration)+$loanAmount;
-	echo "<br><h3>Your requested loan is " . $currencySelect. $loanAmount." for ".$loanSelect."<br>Interest rate is charged at " . $interest ."%<br>" ."You payback " .$currencySelect. $loanPayback . " on or before the completion of 12 months</h3>";}
+	$loanPayback=(floatval($loanAmount)*($interest/100)*$loanDuration)+$loanAmount;
+	echo "<br><h3>Your requested loan is " . $currencySelect. $loanAmount." for ".$loanSelect."<br>Interest rate is charged at " . $interest ."%<br>" ."You payback " .$currencySelect. $loanPayback . " on or before the completion of ".$loanSelect."</h3>";
+}
 }
 ?>
