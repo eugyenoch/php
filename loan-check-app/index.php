@@ -59,7 +59,8 @@
 	<select name="selector" required="required">
 		<option name="selector">12 months</option>
 		<option name="selector">24 months</option>
-	</select><br />
+	</select>
+	<br />
 </td>
 </tr>
 <tr>
