@@ -1,6 +1,8 @@
 <?php
 $cookie_name = "user";
 $cookie_value = "Mark John";
+//Formular - only cookieName and cookieValue, are actually required
+//setcookie(CookieName,cookieValue,expiryTime,Path,Domain,Secure/Non-Secure);
 setcookie($cookie_name,$cookie_value, time()+(86400*30), "/");
 ?>
 
