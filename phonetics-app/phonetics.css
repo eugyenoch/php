@@ -1,0 +1,73 @@
+/*For animation at background 
+change "background-position:cover" to "background-position:auto" and uncomment every other comments*/
+body{
+	font-family:verbuna,tahoma;
+	text-align:center;
+	background-image:url('music_sound_min.jpg');
+	background-position:top;
+	background-size:cover;
+	/*animation:animatedBackground 40s linear infinite;*/
+}
+  /*
+  @keyframes animatedBackground{
+  	from{background-position:0 0;} 
+  	to{background-position:100% 0;}
+  }*/
+  
+  span{color:red;} 
+  a{color:khaki;text-decoration:none;}
+
+	form{
+		position:absolute;
+		top:50%;
+		left:50%;
+		transform:translate(-50%,-50%);
+		text-align:center;
+	}
+	h2,h3{
+		position:absolute;
+		top:50%;
+		left:50%;
+		transform:translate(-50%,-50%);
+		margin-top:90px;
+		color:#fffafa;
+	}
+
+	label{
+		font-weight:bolder;
+		font-size:16px;
+		color:white;
+	}
+	input[type=text]{
+		width:60%; 
+		height:30px;
+		border-radius:5px; 
+		margin-top:10px; 
+		margin-bottom:10px;
+		border-bottom:1px solid #c5c5c5; 
+		background-color:transparent; 
+		transition:all linear 2s;
+	}
+	input[type=text]:focus{
+		background-color:#616161;
+		color:#fff;
+		width:100%; 
+		transition:all linear 2s;
+	}
+	input[type=submit]{
+		width:50%; 
+		height:30px;
+		transform:translate(50%,50%);
+		border-radius:5px;
+		border:0;
+		background-color:khaki;
+		font-size:14px;
+	}
+	footer{
+		position:absolute;
+		bottom:5px;
+		left:50%;
+		transform:translateX(-50%);
+		width:100% !important; 
+		color:#fffafa;
+	}
